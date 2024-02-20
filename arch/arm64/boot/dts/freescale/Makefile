@@ -234,6 +234,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb imx8ulp-evk-lpspi-slave.dtb \
 			  imx8ulp-9x9-evk-i3c.dtb imx8ulp-9x9-evk-sof-btsco.dtb \
 			  imx8ulp-evk-lpa.dtb imx8ulp-9x9-evk-lpa.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8qm-mek.dtb imx8qm-mek-ov5640.dtb \
+	                  imx8qm-box3-ov5640.dtb imx8qm-box3-dsi-rm67199.dtb \
+			  imx8qm-box3-dsi-rm67191.dtb imx8qm-box3-hdmi.dtb \
+			  imx8qm-box3-hdmi-rx-ov5640.dtb imx8qm-box3-md.dtb \
+			  imx8qm-box3-jdi-wuxga-lvds1-panel.dtb imx8qm-box3-sof-wm8960.dtb \
 			  imx8qm-mek-enet2-tja1100.dtb imx8qm-mek-rpmsg.dtb \
 			  imx8qm-mek-hdmi.dtb \
 			  imx8qm-mek-jdi-wuxga-lvds1-panel.dtb \
