@@ -1,9 +1,42 @@
 // SPDX-License-Identifier: GPL-2.0+
-// Copyright NXP 2018
+/*
+ * Copyright 2023 NXP
+ */
 
 #include "imx8qm-box3-rpmsg.dts"
 
+/delete-node/ &wm8960;
+
+&i2c1 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	wm8962: wm8962@1a {
+		compatible = "wlf,wm8962";
+		reg = <0x1a>;
+		clocks = <&mclkout0_lpcg 0>;
+		DCVDD-supply = <&reg_audio>;
+		DBVDD-supply = <&reg_audio>;
+		AVDD-supply = <&reg_audio>;
+		CPVDD-supply = <&reg_audio>;
+		MICVDD-supply = <&reg_audio>;
+		PLLVDD-supply = <&reg_audio>;
+		SPKVDD1-supply = <&reg_audio>;
+		SPKVDD2-supply = <&reg_audio>;
+		gpio-cfg = <
+			0x0000 /* 0:Default */
+			0x0000 /* 1:Default */
+			0x0000 /* 2:FN_DMICCLK */
+			0x0000 /* 3:Default */
+			0x0000 /* 4:FN_DMICCDAT */
+			0x0000 /* 5:Default */
+		>;
+	};
+};
+
 / {
+	/delete-node/ sound-wm8960;
+
 	reserved-memory {
 		/delete-node/ dsp_reserved;
 		/delete-node/ dsp_reserved_heap;
@@ -21,36 +54,33 @@
 		status = "disabled";
 	};
 
-	sound-wm8960 {
-		status = "disabled";
-	};
-
-	sof-sound-wm8960 {
+	sof-sound-wm8962 {
 		compatible = "simple-audio-card";
-		label = "wm8960-audio";
+		label = "wm8962-audio";
 		simple-audio-card,bitclock-master = <&sndcodec>;
 		simple-audio-card,frame-master = <&sndcodec>;
 		hp-det-gpio = <&lsio_gpio0 31 GPIO_ACTIVE_HIGH>;
 		simple-audio-card,widgets =
 			"Headphone", "Headphones",
-			"Speaker", "Ext Spk",
-			"Microphone", "Mic Jack";
+			"Microphone", "Headset Mic",
+			"Microphone", "Digital Mic",
+			"Speaker", "Speaker";
 		simple-audio-card,routing =
-			"Headphones", "HP_L",
-			"Headphones", "HP_R",
-			"Ext Spk", "SPK_LP",
-			"Ext Spk", "SPK_LN",
-			"Ext Spk", "SPK_RP",
-			"Ext Spk", "SPK_RN",
-			"LINPUT1", "Mic Jack",
-			"Mic Jack", "MICB";
+			"Headphones", "HPOUTL",
+			"Headphones", "HPOUTR",
+			"Speaker", "SPKOUTL",
+			"Speaker", "SPKOUTR",
+			"Headset Mic", "MICBIAS",
+			"IN1R", "Headset Mic",
+			"IN3R", "Headset Mic",
+			"DMICDAT", "Digital Mic";
 		simple-audio-card,dai-link {
 			format = "i2s";
 			cpu {
 				sound-dai = <&dsp 1>;
 			};
 			sndcodec: codec {
-				sound-dai = <&wm8960>;
+				sound-dai = <&wm8962>;
 			};
 		};
 	};
@@ -132,13 +162,13 @@
 	memory-region = <&dsp_reserved>;
 	/delete-property/ firmware-name;
 
-	tplg-name = "sof-imx8-wm8960.tplg";
+	tplg-name = "sof-imx8-wm8962.tplg";
 	machine-drv-name = "asoc-simple-card";
 
 	status = "okay";
 };
 
-&wm8960 {
+&wm8962 {
 	#sound-dai-cells = <0>;
 	status = "okay";
 };

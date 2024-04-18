@@ -7,7 +7,7 @@
 
 /dts-v1/;
 
-#include "imx8qm-mek-rpmsg.dts"
+#include "imx8qm-box3-rpmsg.dts"
 
 / {
     sound-hdmi-tx {

@@ -5,7 +5,7 @@
 
 /dts-v1/;
 
-#include "imx8qm-mek-dsi-rm67191.dts"
+#include "imx8qm-box3-dsi-rm67191.dts"
 
 
 &mipi0_dsi_host {
