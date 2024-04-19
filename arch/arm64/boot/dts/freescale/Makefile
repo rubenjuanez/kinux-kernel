@@ -234,10 +234,6 @@ dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb imx8ulp-evk-lpspi-slave.dtb \
 			  imx8ulp-9x9-evk-i3c.dtb imx8ulp-9x9-evk-sof-btsco.dtb \
 			  imx8ulp-evk-lpa.dtb imx8ulp-9x9-evk-lpa.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8qm-mek.dtb imx8qm-mek-ov5640.dtb \
-	                  imx8qm-box3-ov5640.dtb imx8qm-box3-dsi-rm67199.dtb \
-			  imx8qm-box3-dsi-rm67191.dtb imx8qm-box3-hdmi.dtb \
-			  imx8qm-box3-hdmi-rx-ov5640.dtb imx8qm-box3-md.dtb \
-			  imx8qm-box3-jdi-wuxga-lvds1-panel.dtb imx8qm-box3-sof-wm8960.dtb \
 			  imx8qm-mek-enet2-tja1100.dtb imx8qm-mek-rpmsg.dtb \
 			  imx8qm-mek-hdmi.dtb \
 			  imx8qm-mek-jdi-wuxga-lvds1-panel.dtb \
@@ -431,3 +427,66 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-revb4-powersave-non-rpmsg.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-revb4-powersave.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8ulp-watch.dtb imx8ulp-evk-lpd.dtb imx8ulp-evk-g1120b0mipi.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8mm-evk-iw612.dtb
+
+# BOX3.0
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3.dtb imx8qm-box3-ov5640.dtb \
+			  imx8qm-box3-enet2-tja1100.dtb imx8qm-box3-rpmsg.dtb \
+			  imx8qm-box3-hdmi.dtb \
+			  imx8qm-box3-jdi-wuxga-lvds1-panel.dtb \
+			  imx8qm-box3-jdi-wuxga-lvds1-panel-rpmsg.dtb \
+			  imx8qm-box3-pcie-ep.dtb \
+			  imx8qm-box3-usdhc3-m2.dtb imx8qm-box3-usd-wifi.dtb \
+			  imx8qm-box3-hdmi-rx.dtb \
+			  imx8qm-box3-hdmi-rx-ov5640.dtb \
+			  imx8qm-box3-ca53.dtb \
+			  imx8qm-box3-ca72.dtb \
+			  imx8qm-box3-dsi-rm67191.dtb imx8qm-box3-dsi-rm67199.dtb \
+			  imx8qm-box3-cockpit-a53.dtb imx8qm-box3-cockpit-a72.dtb \
+			  imx8qm-box3-esai.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-dom0.dtb imx8qm-box3-domu.dtb \
+			  imx8qm-box3-root.dtb imx8qm-box3-inmate.dtb
+
+imx8qm-box3-revd-dtbs := imx8qm-box3.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-rpmsg-dtbs := imx8qm-box3-rpmsg.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-ov5640-dtbs := imx8qm-box3-ov5640.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-enet2-tja1100-dtbs := imx8qm-box3-enet2-tja1100.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-hdmi-dtbs := imx8qm-box3-hdmi.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-jdi-wuxga-lvds1-panel-dtbs := imx8qm-box3-jdi-wuxga-lvds1-panel.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-jdi-wuxga-lvds1-panel-rpmsg-dtbs := imx8qm-box3-jdi-wuxga-lvds1-panel-rpmsg.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-pcie-ep-dtbs := imx8qm-box3-pcie-ep.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-usdhc3-m2-dtbs := imx8qm-box3-usdhc3-m2.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-usd-wifi-dtbs := imx8qm-box3-usd-wifi.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-hdmi-rx-dtbs := imx8qm-box3-hdmi-rx.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-hdmi-rx-ov5640-dtbs := imx8qm-box3-hdmi-rx-ov5640.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-ca53-dtbs := imx8qm-box3-ca53.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-ca72-dtbs := imx8qm-box3-ca72.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-dsi-rm67191-dtbs := imx8qm-box3-dsi-rm67191.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-dsi-rm67199-dtbs := imx8qm-box3-dsi-rm67199.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-esai-dtbs := imx8qm-box3-esai.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-root-dtbs := imx8qm-box3-root.dtb imx8qm-box3-revd.dtbo
+imx8qm-box3-revd-md-dtbs := imx8qm-box3-md.dtb imx8qm-box3-revd.dtbo
+
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-rpmsg.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-ov5640.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-enet2-tja1100.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-hdmi.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-jdi-wuxga-lvds1-panel.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-jdi-wuxga-lvds1-panel-rpmsg.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-pcie-ep.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-usdhc3-m2.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-usd-wifi.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-hdmi-rx.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-hdmi-rx-ov5640.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-ca53.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-ca72.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-dsi-rm67191.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-dsi-rm67199.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-esai.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-root.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-revd-md.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-sof-cs42888.dtb imx8qm-box3-sof-wm8960.dtb \
+			  imx8qm-box3-revd-sof-wm8962.dtb imx8qm-box3-sof.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-box3-md.dtb
+
