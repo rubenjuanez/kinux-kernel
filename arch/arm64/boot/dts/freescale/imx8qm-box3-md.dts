@@ -3,7 +3,7 @@
  * Copyright 2020 NXP
  */
 
-#include "imx8qm-mek-hdmi.dts"
+#include "imx8qm-box3-hdmi.dts"
 
 &ldb1_phy {
 	status = "okay";

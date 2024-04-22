@@ -4,5 +4,5 @@
  * Copyright 2019,2020 NXP
  */
 
-#include "imx8qm-mek.dts"
-#include "imx8qm-mek-jdi-wuxga-lvds1-panel.dtsi"
+#include "imx8qm-box3.dts"
+#include "imx8qm-box3-jdi-wuxga-lvds1-panel.dtsi"

@@ -7,7 +7,7 @@
  * HDMI RX and OV5640 on MIPI CSI 1
  */
 
-#include "imx8qm-mek-hdmi.dts"
+#include "imx8qm-box3-hdmi.dts"
 
 / {
 	sound-hdmi-rx {
