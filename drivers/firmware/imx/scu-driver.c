@@ -105,6 +105,8 @@ static long scu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
     //pr_info("base_addr = 0x%x\n", p_info.base_addr);
     /* After receiving PMIC_ADDR and BASE_ADDR from userspace, send
     them to SCU using sc_misc_board_ioctl to do PMIC operation */
+    /* TO DO: This function is custom and in misc.c */
+    /* TO DO:  Add PMIC I2C address as parameter (now hardcoded to MEKs PMIC1 on SCU)*/
     scu_pmic_ioctl(p_info.pmic_reg, p_info.data, p_info.dataLength);
     break;
   default:

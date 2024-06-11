@@ -44,11 +44,12 @@ struct imx_sc_msg_resp_misc_get_ctrl {
 	u32 val;
 } __packed __aligned(4);
 
+/* TO DO:  Add PMIC I2C address (now hardcoded to MEKs PMIC1 on SCU)*/
 struct imx_sc_msg_req_misc_get_mode {
 	struct imx_sc_rpc_msg hdr;
-	u32 pmic_reg; /* I2C address of PMIC device */
-	u32 data; /* Register corresponding to regulator; */
-	u32 dataLength;
+	u32 pmic_reg; /* PMIC register */
+	u32 data; /* Data to store on register */
+	u32 dataLength /* Data length in bytes */;
 } __packed __aligned(4);
 
 struct imx_sc_msg_resp_misc_get_mode {
@@ -89,6 +90,8 @@ EXPORT_SYMBOL(imx_sc_misc_set_control);
 int sc_misc_board_ioctl(struct imx_sc_ipc *ipc, uint32_t *parm1,
 				     uint32_t *parm2, uint32_t *parm3)
 {
+	/* TO DO: Add PMIC I2C address as parameter (now hardcoded to MEKs PMIC1 on SCU)*/
+	/*        For this, "board_ioctl" function on SCU board.c must be modified. */
 	struct imx_sc_msg_req_misc_get_mode msg;
 	struct imx_sc_msg_resp_misc_get_mode *resp; /* IDNEO: Not implemented */
 	struct imx_sc_rpc_msg *hdr = &msg.hdr;
@@ -131,6 +134,7 @@ int scu_pmic_ioctl(u32 pmic_reg, u32 data, u32 dataLength)
 	u32 parm2 = data;  
 	u32 parm3 = dataLength;
 
+	/* TO DO:  Add PMIC I2C address as parameter (now hardcoded to MEKs PMIC1 on SCU)*/
 	ret = sc_misc_board_ioctl(NULL, &parm1, &parm2, &parm3);
 	if (ret)
 		return ret;
