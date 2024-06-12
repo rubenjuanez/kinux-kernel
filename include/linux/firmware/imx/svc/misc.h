@@ -40,6 +40,7 @@ enum imx_misc_func {
 	IMX_SC_MISC_FUNC_GET_TEMP = 13,
 	IMX_SC_MISC_FUNC_GET_BOOT_DEV = 16,
 	IMX_SC_MISC_FUNC_GET_BUTTON_STATUS = 18,
+	IMX_SC_MISC_FUNC_BOARD_IOCTL = 34,
 };
 
 /*
@@ -58,6 +59,9 @@ int imx_sc_misc_get_control(struct imx_sc_ipc *ipc, u32 resource,
 
 int imx_sc_pm_cpu_start(struct imx_sc_ipc *ipc, u32 resource,
 			bool enable, u64 phys_addr);
+
+int sc_misc_board_ioctl(struct imx_sc_ipc *ipc, uint32_t *parm1, uint32_t *parm2, uint32_t *parm3);
+int scu_pmic_ioctl(u32 pmic_reg, u32 data, u32 dataLength);
 #else
 static inline int imx_sc_misc_set_control(struct imx_sc_ipc *ipc,
 					  u32 resource, u8 ctrl, u32 val)
